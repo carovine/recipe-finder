@@ -1,7 +1,6 @@
 import "../App.css";
 import { IoIosSearch } from "react-icons/io";
 
-
 const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-white  z-50">
@@ -70,7 +69,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div >
+            <div>
               <IoIosSearch className="w-5 h-5 hover:text-gray-500/75" />
             </div>
             <div className="sm:flex sm:gap-4">

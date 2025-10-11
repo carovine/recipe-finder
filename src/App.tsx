@@ -1,14 +1,15 @@
-import './App.css'
-import Navbar from './components/Navbar.tsx'
-import Hero from './components/Hero.tsx'
+import "./App.css";
+import Navbar from "./components/Navbar.tsx";
+import Hero from "./components/Hero.tsx";
+import HomeRecipe from "./components/HomeRecipe.tsx";
 function App() {
-
   return (
     <>
-    <Navbar />
-    <Hero />
+      <Navbar />
+      <Hero />
+      <HomeRecipe />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
