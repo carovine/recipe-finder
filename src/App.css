@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@theme {
+  --font-roboto: "Roboto", sans-serif; 
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hotpaprikabg{
+        background-color: #FF6F3C;
+}
+.hotpaprikacolor{
+        color: #FF6F3C;
+}
+.honeycombbg{
+        background-color: #E5A657;
+}
+.honeycombcolor{
+        color: #E5A657;
+}
+
+.biscuitbg{
+        background-color: #DFBC94;
+}
+.biscuitcolor{
+        color: #DFBC94;
+}
+.crumpetbg{
+        background-color: #f9ede0;
+}
+.crumpetcolor{
+        color: #f9ede0;
+}
