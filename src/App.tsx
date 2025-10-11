@@ -1,13 +1,12 @@
 import './App.css'
 import Navbar from './components/Navbar.tsx'
-import Recipes from './pages/Recipes.tsx'
-
+import Hero from './components/Hero.tsx'
 function App() {
 
   return (
     <>
     <Navbar />
-    <Recipes />
+    <Hero />
     </>
   )
 }

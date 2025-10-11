@@ -35,3 +35,25 @@
 .crumpetcolor{
         color: #f9ede0;
 }
+
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .explore-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}

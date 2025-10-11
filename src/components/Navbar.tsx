@@ -1,9 +1,10 @@
-import React from 'react';
 import "../App.css";
+import { IoIosSearch } from "react-icons/io";
+
 
 const Navbar = () => {
   return (
-    <header className="crumpterbg">
+    <header className="fixed top-0 left-0 w-full bg-white  z-50">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
@@ -28,51 +29,40 @@ const Navbar = () => {
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    className="honeycombcolor transition hover:text-gray-500/75"
+                    className="text-black transition hover:text-gray-500/75 font-bold"
                     href="#"
                   >
                     {" "}
-                    About{" "}
+                    Home{" "}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-black transition hover:text-gray-500/75"
+                    href="#"
+                  >
+                    {" "}
+                    About Us{" "}
                   </a>
                 </li>
 
                 <li>
                   <a
-                    className="honeycombcolor transition hover:text-gray-500/75"
+                    className="text-black transition hover:text-gray-500/75"
                     href="#"
                   >
                     {" "}
-                    Random Recommend{" "}
+                    Random{" "}
                   </a>
                 </li>
 
                 <li>
                   <a
-                    className="honeycombcolor transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    History{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="honeycombcolor transition hover:text-gray-500/75"
+                    className="text-black transition hover:text-gray-500/75"
                     href="#"
                   >
                     {" "}
                     Favourites{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="honeycombcolor transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    Projects{" "}
                   </a>
                 </li>
               </ul>
@@ -80,6 +70,9 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
+            <div >
+              <IoIosSearch className="w-5 h-5 hover:text-gray-500/75" />
+            </div>
             <div className="sm:flex sm:gap-4">
               <a
                 className="rounded-md hotpaprikabg px-5 py-2.5 text-sm font-medium text-white shadow-sm"
