@@ -2,6 +2,7 @@ import { IoIosTime, IoMdPerson } from "react-icons/io";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import lasanga from "../assets/lasanga.jpg";
 import walnutbrownie from "../assets/walnutbrownie.jpg";
+import { BiSolidHeartCircle } from "react-icons/bi";
 
 const posts = [
   {
@@ -70,12 +71,15 @@ const HomeRecipe = () => {
           {posts.map((items, key) => (
             <li className="w-full mx-auto group sm:max-w-sm" key={key}>
               <a href={items.href}>
-                <img
-                  src={items.img}
-                  loading="lazy"
-                  alt={items.title}
-                  className="w-sm h-xs object-cover rounded-lg"
-                />
+                <div className="relative">
+                  <img
+                    src={items.img}
+                    loading="lazy"
+                    alt={items.title}
+                    className="w-sm h-xs object-cover rounded-lg "
+                  />
+                  <BiSolidHeartCircle className="absolute top-2 right-2 text-black hover:text-red-500 text-xl" />
+                </div>
                 <div className="mt-3 space-y-2">
                   <h3 className="text-lg text-gray-800 duration-150 group-hover:text-orange-600 font-semibold">
                     {items.title}
