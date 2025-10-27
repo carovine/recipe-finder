@@ -1,5 +1,7 @@
 import "../App.css";
 import { IoIosSearch } from "react-icons/io";
+import { SignedIn, SignedOut, UserButton } from "@clerk/react-router";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -27,42 +29,42 @@ const Navbar = () => {
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a
+                  <Link
                     className="text-black transition hover:text-gray-500/75 font-bold"
-                    href="#"
+                    to="/"
                   >
                     {" "}
                     Home{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-black transition hover:text-gray-500/75"
-                    href="#"
+                    to="/recipes"
+                  >
+                    {" "}
+                    Recipes{" "}
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    className="text-black transition hover:text-gray-500/75"
+                    to="/about"
                   >
                     {" "}
                     About Us{" "}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     className="text-black transition hover:text-gray-500/75"
-                    href="#"
-                  >
-                    {" "}
-                    Random{" "}
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-black transition hover:text-gray-500/75"
-                    href="#"
+                    to="/favourites"
                   >
                     {" "}
                     Favourites{" "}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -72,23 +74,28 @@ const Navbar = () => {
             <div>
               <IoIosSearch className="w-5 h-5 hover:text-gray-500/75" />
             </div>
-            <div className="sm:flex sm:gap-4">
-              <a
-                className="rounded-md hotpaprikabg px-5 py-2.5 text-sm font-medium text-white shadow-sm"
-                href="#"
-              >
-                Login
-              </a>
-
-              <div className="hidden sm:flex">
-                <a
-                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium hotpaprikacolor"
-                  href="#"
+            <SignedOut>
+              <div className="sm:flex sm:gap-4">
+                <Link
+                  className="rounded-md hotpaprikabg px-5 py-2.5 text-sm font-medium text-white shadow-sm"
+                  to="/login"
                 >
-                  Register
-                </a>
+                  Login
+                </Link>
+
+                <div className="hidden sm:flex">
+                  <Link
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium hotpaprikacolor"
+                    to="/signup"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
               </div>
-            </div>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
 
             <div className="block md:hidden">
               <button className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
