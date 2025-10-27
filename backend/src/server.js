@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { ENV } from "./config/env.js";
 import { db } from "./config/db.js";
 import { favouritesTable } from "./db/schema.js";
+import { eq, and } from "drizzle-orm";
 
 dotenv.config();
 
@@ -10,8 +11,22 @@ const app = express();
 const PORT = ENV.PORT || 3000;
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/health", (req, res) => {
   res.send("Recipe Finder API is running");
+});
+
+app.get("/api/favourites/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const favourites = await db
+      .select()
+      .from(favouritesTable)
+      .where(eq(favouritesTable.userId, userId));
+    res.status(200).json(favourites);
+  } catch (error) {
+    console.error("Error fetching favourites:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 app.post("/api/favourites", async (req, res) => {
@@ -29,6 +44,24 @@ app.post("/api/favourites", async (req, res) => {
     }
   } catch (error) {
     console.error("Error adding favourite:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.delete("/api/favourites/:userId/:recipeId", async (req, res) => {
+  try {
+    const { userId, recipeId } = req.params;
+    await db
+      .delete(favouritesTable)
+      .where(
+        and(
+          eq(favouritesTable.userId, userId),
+          eq(favouritesTable.recipeId, Number(recipeId))
+        )
+      );
+    res.status(200).json({ message: "Favourite deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting favourite:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
