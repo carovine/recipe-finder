@@ -15,7 +15,7 @@ const Hero = () => {
         scrub: true,
       },
       rotation: -360,
-      duration: 3,
+      duration: 1,
     });
   }, []);
   return (
