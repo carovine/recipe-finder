@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosTime, IoMdPerson } from "react-icons/io";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { BiSolidHeartCircle } from "react-icons/bi";
@@ -13,7 +12,7 @@ const RecipeCard = ({ recipes }: { recipes: Meal[] }) => {
           <Link to={`/recipe/${meal.id}`}>
             <div className="relative">
               <img
-                src={meal.image}
+                src={meal.imageUrl || meal.image}
                 loading="lazy"
                 alt={meal.title}
                 className="w-sm h-xs object-cover rounded-lg "

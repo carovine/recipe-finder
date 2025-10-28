@@ -12,7 +12,9 @@ export type Meal = {
   id: string;
   title: string;
   description: string;
-  image: string;
+  recipeId?: number;
+  imageUrl?: string;
+  image?: string;
   cookTime: string;
   servings: number;
   category: string;

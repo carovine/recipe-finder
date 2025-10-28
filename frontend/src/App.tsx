@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Recipes from "./pages/Recipes";
 import Favourites from "./pages/Favourites";
+import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
   return (
@@ -13,10 +14,7 @@ function App() {
       <Route path="/signup/*" element={<Signup />} />
       <Route path="/login/*" element={<Login />} />
       <Route path="/favourites/" element={<Favourites />} />
-      <Route
-        path="/favourites/:RecipeId"
-        element={<div>Recipe Details Page</div>}
-      />
+      <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
     </Routes>
   );
 }

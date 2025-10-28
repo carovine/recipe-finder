@@ -5,11 +5,19 @@ import { db } from "./config/db.js";
 import { favouritesTable } from "./db/schema.js";
 import { eq, and } from "drizzle-orm";
 import job from "./config/cron.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 const PORT = ENV.PORT || 3000;
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 if (ENV.NODE_ENV === "production") {
   job.start();

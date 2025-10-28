@@ -14,6 +14,7 @@ const Favourites = () => {
   useEffect(() => {
     const loadFavourites = async () => {
       try {
+        if (!user?.id) return;
         const response = await fetch(`${API_URL}/favourites/${user?.id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch favourites");
@@ -25,7 +26,7 @@ const Favourites = () => {
           setLoading(false);
           return;
         }
-        const transformedFavourites = favourites.map((favourite: any) => ({
+        const transformedFavourites = favourites.map((favourite: Meal) => ({
           ...favourite,
           id: favourite.recipeId,
         }));
