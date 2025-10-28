@@ -1,5 +1,4 @@
 import "../App.css";
-import { IoIosSearch } from "react-icons/io";
 import { SignedIn, SignedOut, UserButton } from "@clerk/react-router";
 import { Link } from "react-router";
 
@@ -71,9 +70,6 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div>
-              <IoIosSearch className="w-5 h-5 hover:text-gray-500/75" />
-            </div>
             <SignedOut>
               <div className="sm:flex sm:gap-4">
                 <Link

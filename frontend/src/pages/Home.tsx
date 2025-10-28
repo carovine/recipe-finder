@@ -1,5 +1,4 @@
 import "../App.css";
-import Navbar from "../components/Navbar.tsx";
 import Hero from "../components/Hero.tsx";
 import HomeRecipe from "../components/HomeRecipe.tsx";
 import RandomDivider from "../components/RandomDivider.tsx";
@@ -8,7 +7,7 @@ import { useEffect, useState } from "react";
 import { MealAPI } from "../../services/mealAPI.tsx";
 import FeaturedRecipe from "../components/FeaturedRecipe.tsx";
 import CategoriesFilter from "../components/CategoriesFilter.tsx";
-import {type Category} from "../components/CategoriesFilter.tsx";
+import { type Category } from "../components/CategoriesFilter.tsx";
 export type Meal = {
   id: string;
   title: string;
@@ -60,7 +59,6 @@ const Home = () => {
 
       const transformedFeatured = MealAPI.transformMealData(apiRandomMeal);
       setFeaturedRecipe(transformedFeatured);
-
     } catch (error) {
       console.error("Error loading data:", error);
     } finally {
@@ -91,11 +89,16 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <Hero />
       <RandomDivider />
       {featuredRecipe && <FeaturedRecipe recipe={featuredRecipe} />}
-      {recipes.length > 0 && <CategoriesFilter categories={categories} selectedCategory={selectedCategory} onSelectCategory={handleCategorySelect} />}
+      {recipes.length > 0 && (
+        <CategoriesFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={handleCategorySelect}
+        />
+      )}
       <HomeRecipe recipes={recipes} />
       <Newsletter />
     </>
