@@ -94,13 +94,13 @@ const Home = () => {
       <Hero />
       <RandomDivider />
       {featuredRecipe && <FeaturedRecipe recipe={featuredRecipe} />}
-      {recipes.length > 0 && (
+      {/* {recipes.length > 0 && (
         <CategoriesFilter
           categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={handleCategorySelect}
         />
-      )}
+      )} */}
       <HomeRecipe recipes={recipes} />
       <Newsletter />
     </>
