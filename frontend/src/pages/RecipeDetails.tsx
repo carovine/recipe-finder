@@ -4,10 +4,11 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { MealAPI } from "../../services/mealAPI";
-import { SignIn, useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 import { API_URL } from "../../api";
 import type { Meal } from "./Home";
 import { IoReloadSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 export default function RecipeDetails() {
   const { recipeId } = useParams();
@@ -17,10 +18,15 @@ export default function RecipeDetails() {
   const [isSaving, setIsSaving] = useState(false);
 
   const { user } = useUser();
+  const navigate = useNavigate();
   const userId = user?.id;
 
   useEffect(() => {
-    if (!userId || !recipeId) return;
+    if (!recipeId) return;
+
+    if (!userId) {
+      setIsFavourite(false);
+    }
 
     const checkIfSaved = async () => {
       try {
@@ -52,13 +58,19 @@ export default function RecipeDetails() {
         setLoading(false);
       }
     };
-
-    checkIfSaved();
+    if (userId) {
+      checkIfSaved();
+    }
     loadRecipeDetails();
   }, [userId, recipeId]);
 
   const handleToggleFav = async () => {
-    if (!userId || !recipeId) return;
+    if (!userId) {
+      navigate("/login");
+      return;
+    }
+    if (!recipeId) return;
+
     setIsSaving(true);
     try {
       if (isFavourite) {
@@ -100,8 +112,8 @@ export default function RecipeDetails() {
     }
   };
 
-  if (!userId) return <SignIn />; // Safe now ✅
   if (loading) return <div>Loading recipe details...</div>;
+  if (!recipe) return <div>Recipe not found</div>;
 
   return (
     <div className="w-full min-h-screen bg-white py-17">

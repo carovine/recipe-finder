@@ -6,7 +6,7 @@ import Newsletter from "../components/Newsletter.tsx";
 import { useEffect, useState } from "react";
 import { MealAPI } from "../../services/mealAPI.tsx";
 import FeaturedRecipe from "../components/FeaturedRecipe.tsx";
-import CategoriesFilter from "../components/CategoriesFilter.tsx";
+// import CategoriesFilter from "../components/CategoriesFilter.tsx";
 import { type Category } from "../components/CategoriesFilter.tsx";
 export type Meal = {
   id: string;
@@ -30,8 +30,8 @@ const Home = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [featuredRecipe, setFeaturedRecipe] = useState<Meal | null>(null);
   const [loading, setLoading] = useState(true);
-  // const [refreshing, setRefreshing] = useState(false);
 
+  
   const loadData = async () => {
     try {
       setLoading(true);
